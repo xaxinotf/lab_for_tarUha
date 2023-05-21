@@ -1,0 +1,213 @@
+﻿@model Zaput
+
+
+@if (Model.queryId == 1)
+{
+    <h1>Отримайте загальну кількість продуктів у кожному замовленні</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">ides</th>
+                <th>Кількість продуктів</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                    <td>
+                        @Model.ProductsInOrders[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 2)
+{
+    <h2>
+        Кількість продуктів у кожному замовленні
+    </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">Names</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < Model.Names.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.Names[i]
+                    </td>
+                    <td>
+                        @Model.Dozirovka[i]
+                    </td>
+                    <td>
+                        @Model.TerminPrudatn[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 3)
+{
+    <h1>Всі продукти замовлені певним користувачем</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">Products</th>
+                <th>All products</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Names.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.Names[i]
+                    </td>
+                    <td>
+                        @Model.OrderCount[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 4)
+{
+    <h1>Отримати користувачів, які розмістили замовлення на певний тип доставки</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">ides</th>
+                <th>Тип доставки</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.Names[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.LastNames[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 5)
+{
+    <h1>Отримати користувачів</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">ides</th>
+                <th>ides користувача</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.DeliveryAdress[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.PaymentTypeName[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.ShipTypeName[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 6)
+{
+    <h1>Отримати унікальні ідентифікатори замовлень</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">ides</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 7)
+{
+    <h1>Отримати ідентифікатори замовлень</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">Ides</th>
+            </tr>
+        </thead>
+        <tbody>
+           @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.queryId == 8)
+{
+    <h1>Отримати ідентифікатори замовлень</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">Ides</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ides.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.ides[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

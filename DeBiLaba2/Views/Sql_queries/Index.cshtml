@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Zaput 
+<!DOCTYPE html>
 <html>
 <head>
     <title>SimpleQueries</title>
@@ -50,29 +51,28 @@
 </head>
 <body>
     <h1>Queries</h1>
-    <form>
-        <p style="margin-right:20px"><b>Query 1:</b> Some sentence</p>
-        <input style="margin-right:20px" type="text" name="query1" placeholder="Enter input">
+    <form asp-action="Q1">
+        <p style="margin-right:20px"><b>Запит 1:</b> Знайти тримайте замовлення, які мають однаковий тип оплати та тип доставки</p>
         <button type="submit">Submit</button>
     </form>
-    <form>
+    <form asp-action="Q2">
         <p style="margin-right:20px"><b>Query 2:</b> Some sentence</p>
-        <input style="margin-right:20px" type="text" name="query2" placeholder="Enter input">
+        <input asp-for=UserrrId  style="margin-right:20px" type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error1"]</label>
     </form>
-    <form>
+    <form asp-action="Q3">
         <p style="margin-right:20px"><b>Query 3:</b> Some sentence</p>
-        <input style="margin-right:20px" type="text" name="query3" placeholder="Enter input">
         <button type="submit">Submit</button>
     </form>
-    <form>
+    <form asp-action="Q4">
         <p style="margin-right:20px"><b>Query 4:</b> Some sentence</p>
-        <input style="margin-right:20px" type="text" name="query4" placeholder="Enter input">
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error2"]</label>
     </form>
-    <form>
+    <form asp-action="Q5">
         <p style="margin-right:20px"><b>Query 5:</b> Some sentence</p>
-        <input style="margin-right:20px" type="text" name="query5" placeholder="Enter input">
         <button type="submit">Submit</button>
     </form>
 </body>

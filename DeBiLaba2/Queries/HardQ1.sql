@@ -4,6 +4,6 @@ FROM [Orders] o
 JOIN Products p ON p.Id IN (
     SELECT op.ProductsId
     FROM OrderProduct op
-    WHERE op.OrderId = @OrderId -- Replace 1 with the desired Order Id
+    WHERE op.OrderId = @OrderId --minayemo
 )
-WHERE o.Id <> @oId -- Exclude the specified Order Id from the result
+WHERE o.Id <> @oId --minayemo

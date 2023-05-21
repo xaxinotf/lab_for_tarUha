@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Zaput
+<!DOCTYPE html>
 <html>
 <head>
     <title>HardQueries</title>
@@ -50,22 +51,31 @@
 <body>
     <h1>Queries</h1>
 
-    <form>
+    <form asp-action="HardQ1">
         <p style="margin-right:20px"><b>Query 1:</b> Some sentence</p>
-        <input type="text" name="query1" placeholder="Enter input">
+        <input asp-for=OrdeId type="text" placeholder="Enter input">
+        <input asp-for=oid type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error3"]</label>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error4"]</label>
     </form>
 
-    <form>
+    <form asp-action="HardQ2">
         <p style="margin-right:20px"><b>Query 2:</b> Some sentence</p>
-        <input type="text" name="query2" placeholder="Enter input">
+        <input asp-for=oid type="text" placeholder="Enter input">
+        <input asp-for=OrdeId type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error5"]</label>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error6"]</label>
     </form>
 
-    <form>
+    <form asp-action="HardQ3">
         <p style="margin-right:20px"><b>Query 3:</b> Some sentence</p>
-        <input type="text" name="query3" placeholder="Enter input">
+        <input asp-for=oid type="text" placeholder="Enter input">
+        <input asp-for=OrdeId type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error7"]</label>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error8"]</label>
     </form>
 </body>
 </html>

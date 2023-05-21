@@ -60,7 +60,7 @@ namespace DeBiLaba2.Controllers
             model.queryId = 2;
             string sqlFilePath = Path.Combine(path, "Q2.sql");
             string sqlQuery = System.IO.File.ReadAllText(sqlFilePath);
-            sqlQuery = sqlQuery.Replace("@Id", UserId.ToString());
+            sqlQuery = sqlQuery.Replace("@id", UserId.ToString());
 
             using (var conn = new SqlConnection(secuelconnection))
             {
@@ -80,6 +80,8 @@ namespace DeBiLaba2.Controllers
             }
             return View("Vivo", model);
         }
+
+        [HttpPost]
         public IActionResult Q3(Zaput model)
         {
             model.OrderCount = new List<int>();
@@ -104,6 +106,8 @@ namespace DeBiLaba2.Controllers
             }
             return View("Vivo", model);
         }
+
+        [HttpPost]
         public IActionResult Q4(Zaput model)
         {
             if (model.PaymentTypeeee == null)
@@ -138,6 +142,8 @@ namespace DeBiLaba2.Controllers
             }
             return View("Vivo", model);
         }
+
+        [HttpPost]
         public IActionResult Q5(Zaput model)
         {
             model.ides = new List<int>();
@@ -167,6 +173,7 @@ namespace DeBiLaba2.Controllers
             return View("Vivo", model);
         }
 
+        [HttpPost]
         public IActionResult HardQ1(Zaput model)
         {
             if (model.OrdeId == 0)
@@ -203,6 +210,8 @@ namespace DeBiLaba2.Controllers
             }
             return View("Vivo", model);
         }
+
+        [HttpPost]
         public IActionResult HardQ2(Zaput model)
         {
             if (model.oid == 0)
@@ -241,6 +250,7 @@ namespace DeBiLaba2.Controllers
             return View("Vivo", model);
         }
 
+        [HttpPost]
         public IActionResult HardQ3(Zaput model)
         {
             if (model.oid == 0)
