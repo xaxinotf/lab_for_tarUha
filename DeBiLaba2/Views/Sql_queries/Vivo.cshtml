@@ -1,5 +1,39 @@
-﻿@model Zaput
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: black;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .product-cell {
+        font-weight: bold;
+        color: black;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    .highlight {
+        background-color: #ffc;
+    }
+</style>
+
+@model Zaput
 
 @if (Model.queryId == 1)
 {
@@ -8,7 +42,7 @@
     <table>
         <thead>
             <tr>
-                <th class="product-cell">ides</th>
+                <th>ides</th>
                 <th>Кількість продуктів</th>
             </tr>
         </thead>
@@ -29,19 +63,16 @@
 }
 else if (Model.queryId == 2)
 {
-    <h2>
-        Кількість продуктів у кожному замовленні
-    </h2>
+    <h2>Кількість продуктів у кожному замовленні</h2>
 
     <table>
         <thead>
             <tr>
-                <th class="product-cell">Names</th>
+                <th>Names</th>
                 <th>Name</th>
             </tr>
         </thead>
         <tbody>
-
             @for (int i = 0; i < Model.Names.Count; i++)
             {
                 <tr>
@@ -66,7 +97,7 @@ else if (Model.queryId == 3)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">Products</th>
+                <th>Products</th>
                 <th>All products</th>
             </tr>
         </thead>
@@ -92,7 +123,7 @@ else if (Model.queryId == 4)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">ides</th>
+                <th>ides</th>
                 <th>Тип доставки</th>
             </tr>
         </thead>
@@ -120,7 +151,7 @@ else if (Model.queryId == 5)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">ides</th>
+                <th>ides</th>
                 <th>ides користувача</th>
             </tr>
         </thead>
@@ -152,7 +183,7 @@ else if (Model.queryId == 6)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">ides</th>
+                <th>ides</th>
             </tr>
         </thead>
         <tbody>
@@ -174,11 +205,11 @@ else if (Model.queryId == 7)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">Ides</th>
+                <th>Ides</th>
             </tr>
         </thead>
         <tbody>
-           @for (int i = 0; i < Model.ides.Count; i++)
+            @for (int i = 0; i < Model.ides.Count; i++)
             {
                 <tr>
                     <td class="product-cell">
@@ -196,7 +227,7 @@ else if (Model.queryId == 8)
     <table>
         <thead>
             <tr>
-                <th class="product-cell">Ides</th>
+                <th>Ides</th>
             </tr>
         </thead>
         <tbody>
