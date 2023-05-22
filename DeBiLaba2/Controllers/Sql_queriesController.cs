@@ -192,7 +192,7 @@ namespace DeBiLaba2.Controllers
             }
             if (myContext.ShipTypes.FirstOrDefault(u => u.Name == model.PaymentTypeeee) == null)
             {
-                TempData["Error115"] = $"Сорі, але таких даних не існує!!!";
+                TempData["Error116"] = $"Сорі, але таких даних не існує!!!";
                 return RedirectToAction("Index", "Sql_queries");
             }
             model.ides = new List<int>();
@@ -237,7 +237,7 @@ namespace DeBiLaba2.Controllers
             }
             if (myContext.Orders.FirstOrDefault(u => u.Id == model.oid) == null)
             {
-                TempData["Error112"] = $"Сорі, але таких даних не існує!!!";
+                TempData["Error228"] = $"Сорі, але таких даних не існує!!!";
                 return RedirectToAction("Index", "Sql_queries");
             }
             int OrderrrIddddd = model.OrdeId;
@@ -280,7 +280,7 @@ namespace DeBiLaba2.Controllers
             }
             if (myContext.Orders.FirstOrDefault(u => u.Id == model.oid) == null)
             {
-                TempData["Error112"] = $"Сорі, але таких даних не існує!!!";
+                TempData["Error1488"] = $"Сорі, але таких даних не існує!!!";
                 return RedirectToAction("Index", "Sql_queries");
             }
             int OrderrrIddddd = model.OrdeId;
@@ -323,7 +323,7 @@ namespace DeBiLaba2.Controllers
             }
             if (myContext.Orders.FirstOrDefault(u => u.Id == model.oid) == null)
             {
-                TempData["Error112"] = $"Сорі, але таких даних не існує!!!";
+                TempData["Error337"] = $"Сорі, але таких даних не існує!!!";
                 return RedirectToAction("Index", "Sql_queries");
             }
             int OrderrrIddddd = model.OrdeId;
