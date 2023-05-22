@@ -14,9 +14,11 @@
         public List<string> TerminPrudatn { get; set; }
         public List<int> OrderCount { get; set; }
         public string PaymentTypeeee { get; set; }
+        public string DeliveryString { get; set; }
         public List<string> DeliveryAdress { get; set; }
         public List<string> PaymentTypeName { get; set; }
         public List<string> ShipTypeName { get; set; }
-        public int oid { get; set; } 
+        public int oid { get; set; }
+        public List<int> ProductCount { get; set; }
     }
 }

@@ -22,11 +22,18 @@ namespace DeBiLaba2.Controllers
         [HttpPost]
         public IActionResult Q1(Zaput model)
         {
+            if (model.DeliveryString == null)
+            {
+                TempData["Error111"] = $"Блін, пліз, введіть адрес доставки!";
+                return RedirectToAction("Index", "Sql_queries");
+            }
             model.ides = new List<int>();
-            model.ProductsInOrders = new List<int>();
+            model.ProductCount = new List<int>();
             model.queryId = 1;
             string sqlFilePath = Path.Combine(path, "Q1.sql");
             string sqlQuery = System.IO.File.ReadAllText(sqlFilePath);
+            sqlQuery = sqlQuery.Replace("@Dostavka", model.DeliveryString.ToString());
+
             using (var conn = new SqlConnection(secuelconnection))
             {
                 conn.Open();
@@ -37,7 +44,7 @@ namespace DeBiLaba2.Controllers
                         while (reader.Read())
                         {
                             model.ides.Add(reader.GetInt32(0));
-                            model.ProductsInOrders.Add(reader.GetInt32(1));
+                            model.ProductCount.Add(reader.GetInt32(1));
                         }
                     }
                 }
@@ -84,11 +91,17 @@ namespace DeBiLaba2.Controllers
         [HttpPost]
         public IActionResult Q3(Zaput model)
         {
+            if (model.PaymentTypeeee == null)
+            {
+                TempData["Error222"] = $"Блін, пліз, введіть тип оплати користувача!";
+                return RedirectToAction("Index", "Sql_queries");
+            }
             model.OrderCount = new List<int>();
             model.Names = new List<string>();
             model.queryId = 3;
             string sqlFilePath = Path.Combine(path, "Q3.sql");
             string sqlQuery = System.IO.File.ReadAllText(sqlFilePath);
+            sqlQuery = sqlQuery.Replace("@PayBinance", model.PaymentTypeeee.ToString());
             using (var conn = new SqlConnection(secuelconnection))
             {
                 conn.Open();
@@ -146,6 +159,11 @@ namespace DeBiLaba2.Controllers
         [HttpPost]
         public IActionResult Q5(Zaput model)
         {
+            if (model.PaymentTypeeee == null)
+            {
+                TempData["Error333"] = $"Блін, пліз, введіть тип доставки ";
+                return RedirectToAction("Index", "Sql_queries");
+            }
             model.ides = new List<int>();
             model.DeliveryAdress = new List<string>();
             model.PaymentTypeName = new List<string>();
@@ -153,6 +171,7 @@ namespace DeBiLaba2.Controllers
             model.queryId = 5;
             string sqlFilePath = Path.Combine(path, "Q5.sql");
             string sqlQuery = System.IO.File.ReadAllText(sqlFilePath);
+            sqlQuery = sqlQuery.Replace("@PaymentType", model.PaymentTypeeee.ToString());
             using (var conn = new SqlConnection(secuelconnection))
             {
                 conn.Open();
@@ -164,8 +183,7 @@ namespace DeBiLaba2.Controllers
                         {
                             model.ides.Add(reader.GetInt32(0));
                             model.DeliveryAdress.Add(reader.GetString(1));
-                            model.PaymentTypeName.Add(reader.GetString(2));
-                            model.ShipTypeName.Add(reader.GetString(3));
+                            model.ShipTypeName.Add(reader.GetString(2));
                         }
                     }
                 }

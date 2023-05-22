@@ -53,7 +53,9 @@
     <h1>Queries</h1>
     <form asp-action="Q1">
         <p style="margin-right:20px"><b>Запит 1:</b> Знайти тримайте замовлення, які мають однаковий тип оплати та тип доставки</p>
+        <input asp-for=DeliveryString style="margin-right:20px" type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error111"]</label>
     </form>
     <form asp-action="Q2">
         <p style="margin-right:20px"><b>Query 2:</b> Some sentence</p>
@@ -63,6 +65,8 @@
     </form>
     <form asp-action="Q3">
         <p style="margin-right:20px"><b>Query 3:</b> Some sentence</p>
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error222"]</label>
         <button type="submit">Submit</button>
     </form>
     <form asp-action="Q4">
@@ -73,7 +77,9 @@
     </form>
     <form asp-action="Q5">
         <p style="margin-right:20px"><b>Query 5:</b> Some sentence</p>
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
         <button type="submit">Submit</button>
+        <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error333"]</label>
     </form>
 </body>
 </html>

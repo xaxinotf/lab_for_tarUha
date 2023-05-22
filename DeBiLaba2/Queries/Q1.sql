@@ -3,4 +3,5 @@
 SELECT o.Id, COUNT(*) AS ProductCount
 FROM Orders o
 JOIN OrderProduct op ON o.Id = op.OrderId
-GROUP BY o.Id;
+WHERE o.DeliveryAddress LIKE '@Dostavka'
+GROUP BY o.Id
