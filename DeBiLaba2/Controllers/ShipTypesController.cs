@@ -10,87 +10,87 @@ using DeBiLaba2.Models;
 
 namespace DeBiLaba2.Controllers
 {
-    public class UsersController : Controller
+    public class ShipTypesController : Controller
     {
         private readonly MyContext _context;
 
-        public UsersController(MyContext context)
+        public ShipTypesController(MyContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: ShipTypes
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'MyContext.User'  is null.");
+              return _context.ShipTypes != null ? 
+                          View(await _context.ShipTypes.ToListAsync()) :
+                          Problem("Entity set 'MyContext.ShipTypes'  is null.");
         }
 
-        // GET: Users/Details/5
+        // GET: ShipTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ShipTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var shipType = await _context.ShipTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (shipType == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(shipType);
         }
 
-        // GET: Users/Create
+        // GET: ShipTypes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: ShipTypes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName")] Users user)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description")] ShipType shipType)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(shipType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(shipType);
         }
 
-        // GET: Users/Edit/5
+        // GET: ShipTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ShipTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var shipType = await _context.ShipTypes.FindAsync(id);
+            if (shipType == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(shipType);
         }
 
-        // POST: Users/Edit/5
+        // POST: ShipTypes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName")] Users user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description")] ShipType shipType)
         {
-            if (id != user.Id)
+            if (id != shipType.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace DeBiLaba2.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(shipType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!ShipTypeExists(shipType.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace DeBiLaba2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(shipType);
         }
 
-        // GET: Users/Delete/5
+        // GET: ShipTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ShipTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var shipType = await _context.ShipTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (shipType == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(shipType);
         }
 
-        // POST: Users/Delete/5
+        // POST: ShipTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Users == null)
+            if (_context.ShipTypes == null)
             {
-                return Problem("Entity set 'MyContext.User'  is null.");
+                return Problem("Entity set 'MyContext.ShipTypes'  is null.");
             }
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
+            var shipType = await _context.ShipTypes.FindAsync(id);
+            if (shipType != null)
             {
-                _context.Users.Remove(user);
+                _context.ShipTypes.Remove(shipType);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool ShipTypeExists(int id)
         {
-          return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.ShipTypes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

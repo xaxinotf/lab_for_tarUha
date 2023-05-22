@@ -1,13 +1,22 @@
-﻿@model IEnumerable<DeBiLaba2.Models.Users>
+﻿@model IEnumerable<DeBiLaba2.Models.PaymentType>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <style>
-    .pink-gradient {
-        background: linear-gradient(to right, #FFB6C1, #FF69B4);
+    .table {
+        background: linear-gradient(to bottom, #9c27b0, #673ab7);
+        color: white;
     }
+
+        .table th {
+            color: white;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 </style>
 
 <h1>Index</h1>
@@ -15,14 +24,14 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table pink-gradient">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                @Html.DisplayNameFor(model => model.Desription)
             </th>
             <th></th>
         </tr>
@@ -32,10 +41,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.Desription)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

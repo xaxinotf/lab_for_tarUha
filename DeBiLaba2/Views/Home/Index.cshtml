@@ -23,7 +23,6 @@
             animation: rainbow-text-animation 10s linear infinite;
         }
 
-
         p {
             font-size: 18px;
             line-height: 1.5;
@@ -35,33 +34,63 @@
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px; /* Adjust padding to increase button size */
+            background: linear-gradient(45deg, #999999, #777777);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Add this line to make buttons wrap to new lines */
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="text-center">
-        <h1>Welcome</h1>
-        <p>
-            Предметна область та ER-модель<br>
-            Якщо перша контрольна не здавалася або при зміні предметної області, потрібна ER-модель.<br>
-            Робота може виконана на базі будь-якої СУБД з мовою SQL.<br>
-            Таблиці<br>
-            Потрібно не менше 5 взаємно зв’язаних та заповнених даними таблиць. У периферійних таблицях<br>
-            не менше 4-5 рядків, а у зв’язкових не менше 10 рядків.<br>
-            Форми<br>
-            1) Всі дані повинні вводитись, переглядатись та редагуватись лише через форми користувача.<br>
-            2) При вводі чи редагуванні даних необхідно здійснювати контроль коректності (формату) вводу.<br>
-            Наприклад, при спробі користувача ввести текст у числове поле (чи поле дати) потрібно<br>
-            блокувати таку дію з відповідним повідомленням від вашої системи, а не від базової СУБД.<br>
-            Інший варіант – блокувати ввід некоректних даних в індикативне поле форми, тоді потрібні<br>
-            підказки на формі (постійні чи такі, які з’являються при необхідності) про бажаний формат<br>
-            вводу.<br>
-            3) При відкритті бази даних повинна виводитись головна форма-меню, на якій присутні<br>
-            посилання на всі інші форми, запити, ввід, редагування, перегляд. На всіх інших формах повинна<br>
-            бути кнопка "Повернутись до меню", або "Згорнути".
-        </p>
+        <h1>Аптека Богдан (Чебан Богдан К-27)</h1>
+
+        <div class="button-container">
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Домік</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Приватність</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Sql_queries" asp-action="Index">Прості Запити</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Sql_queries" asp-action="Index1">Множинні Запити</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Ордери</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="PaymentTypes" asp-action="Index">Тип Оплати</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Продуктки</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="ShipTypes" asp-action="Index">Тип Доставки</a>
+            </button>
+            <button class="button">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Юзери</a>
+            </button>
+        </div>
         <p>Про лабу <a href="https://drive.google.com/file/d/1ZHoentLMnosqgiedeGY08MGz2xRV9JBJ/view">детальніше дивитись гугл док</a>.</p>
     </div>
 </body>

@@ -18,5 +18,5 @@ public class MyContext : DbContext
 
     public DbSet<ShipType> ShipTypes { get; set; }
 
-    public DbSet<DeBiLaba2.Models.User> User { get; set; } = default!;
+    public DbSet<Users> Users { get; set; } = default!;
 }

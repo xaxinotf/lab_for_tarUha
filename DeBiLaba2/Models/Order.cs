@@ -18,5 +18,5 @@ public class Order
     public virtual PaymentType? PaymentType { get; set; }
 
     public virtual ShipType? ShipTypeNavigation { get; set; }
-    public virtual User? User { get; set; }
+    public virtual Users? User { get; set; }
 }

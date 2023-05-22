@@ -10,87 +10,87 @@ using DeBiLaba2.Models;
 
 namespace DeBiLaba2.Controllers
 {
-    public class UsersController : Controller
+    public class PaymentTypesController : Controller
     {
         private readonly MyContext _context;
 
-        public UsersController(MyContext context)
+        public PaymentTypesController(MyContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: PaymentTypes
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'MyContext.User'  is null.");
+              return _context.PaymentTypes != null ? 
+                          View(await _context.PaymentTypes.ToListAsync()) :
+                          Problem("Entity set 'MyContext.PaymentTypes'  is null.");
         }
 
-        // GET: Users/Details/5
+        // GET: PaymentTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.PaymentTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var paymentType = await _context.PaymentTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (paymentType == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(paymentType);
         }
 
-        // GET: Users/Create
+        // GET: PaymentTypes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: PaymentTypes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName")] Users user)
+        public async Task<IActionResult> Create([Bind("Id,Name,Desription")] PaymentType paymentType)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(paymentType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(paymentType);
         }
 
-        // GET: Users/Edit/5
+        // GET: PaymentTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.PaymentTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var paymentType = await _context.PaymentTypes.FindAsync(id);
+            if (paymentType == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(paymentType);
         }
 
-        // POST: Users/Edit/5
+        // POST: PaymentTypes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName")] Users user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Desription")] PaymentType paymentType)
         {
-            if (id != user.Id)
+            if (id != paymentType.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace DeBiLaba2.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(paymentType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!PaymentTypeExists(paymentType.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace DeBiLaba2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(paymentType);
         }
 
-        // GET: Users/Delete/5
+        // GET: PaymentTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.PaymentTypes == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var paymentType = await _context.PaymentTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (paymentType == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(paymentType);
         }
 
-        // POST: Users/Delete/5
+        // POST: PaymentTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Users == null)
+            if (_context.PaymentTypes == null)
             {
-                return Problem("Entity set 'MyContext.User'  is null.");
+                return Problem("Entity set 'MyContext.PaymentTypes'  is null.");
             }
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
+            var paymentType = await _context.PaymentTypes.FindAsync(id);
+            if (paymentType != null)
             {
-                _context.Users.Remove(user);
+                _context.PaymentTypes.Remove(paymentType);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool PaymentTypeExists(int id)
         {
-          return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.PaymentTypes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
