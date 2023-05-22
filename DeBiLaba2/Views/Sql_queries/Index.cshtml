@@ -1,4 +1,4 @@
-﻿@model Zaput 
+﻿@model Zaput
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,10 @@
         }
 
         h1 {
-            color: #333;
+            background: linear-gradient(45deg, yellow, green);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
         }
 
@@ -24,6 +27,7 @@
             align-items: center;
             justify-content: center;
         }
+
         input[type="text"] {
             padding: 8px;
             font-size: 14px;
@@ -41,48 +45,54 @@
             cursor: pointer;
         }
 
-        button[type="submit"]:hover {
-            background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-            animation: rainbow 1s linear infinite;
-        }
-
+            button[type="submit"]:hover {
+                background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+                animation: rainbow 1s linear infinite;
+            }
 
     </style>
 </head>
 <body>
-    <h1>Queries</h1>
+    <h1>Прості запити</h1>
     <form asp-action="Q1">
-        <p style="margin-right:20px"><b>Запит 1:</b> Знайти тримайте замовлення, які мають однаковий тип оплати та тип доставки</p>
-        <input asp-for=DeliveryString style="margin-right:20px" type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px">
+            <b>Запит 1:</b> підрахувати к-сть товарів у кожному замовленні з адресою доставки, що містить:
+        </p>
+        <input asp-for=DeliveryString style="margin-right:20px" type="text" placeholder="Введіть доставку">
+        <button type="submit">Найти</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error111"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error112"]</label>
     </form>
     <form asp-action="Q2">
-        <p style="margin-right:20px"><b>Query 2:</b> Some sentence</p>
-        <input asp-for=UserrrId  style="margin-right:20px" type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px">
+            <b>Запит 2:</b> знайти ім'я товару, інформацію про спосіб випуску та дозування, а також термін придатності для всіх товарів, пов'язаних із замовленнями, де ідентиф. корист.:
+        </p>
+        <input asp-for=UserrrId style="margin-right:20px" type="text" placeholder="Введіть айдішку">
+        <button type="submit">Найти</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error1"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error113"]</label>
     </form>
     <form asp-action="Q3">
-        <p style="margin-right:20px"><b>Query 3:</b> Some sentence</p>
-        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
+        <p style="margin-right:20px">
+            <b>Запит 3:</b> виконати підрахунок кількості замовлень для кожного типу платежу, де назва типу платежу містить рядок:
+        </p>
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Введіть тип оплати">
+        <button type="submit">Найти</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error222"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error114"]</label>
-        <button type="submit">Submit</button>
+
     </form>
     <form asp-action="Q4">
-        <p style="margin-right:20px"><b>Query 4:</b> Some sentence</p>
-        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px"><b>Запит 4:</b> вибирати інформацію про користувачів із таблиці "Users", які зробили замовлення, використовуючи:</p>
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Певний тип доставки">
+        <button type="submit">Найти</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error2"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error115"]</label>
     </form>
     <form asp-action="Q5">
-        <p style="margin-right:20px"><b>Query 5:</b> Some sentence</p>
-        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px"><b>Запит 5:</b> повернути інформацію про замовлення, які мають тип доставки, що відповідає значенню:</p>
+        <input asp-for=PaymentTypeeee style="margin-right:20px" type="text" placeholder="Введіть тип доставки">
+        <button type="submit">Найти</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error333"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error116"]</label>
     </form>

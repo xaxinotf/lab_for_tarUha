@@ -9,8 +9,12 @@
         }
 
         h1 {
-            color: #333;
+            background: linear-gradient(to right, black, red);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
+            margin: 0;
+            padding: 20px 0;
         }
 
         p {
@@ -47,35 +51,36 @@
                 background-image: linear-gradient(to right, #04569C, #FFC800, #04569C);
             }
     </style>
+
 </head>
 <body>
-    <h1>Queries</h1>
+    <h1>Множинні запити</h1>
 
     <form asp-action="HardQ1">
-        <p style="margin-right:20px"><b>Query 1:</b> Some sentence</p>
-        <input asp-for=OrdeId type="text" placeholder="Enter input">
-        <input asp-for=oid type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px"><b>М. Запит 1:</b>отримати унікальні ідентифікатори замовлень, які містять продукти, замовлені в певному замовленні, виключаючи саме це замовлення:</p>
+        <input asp-for=OrdeId type="text" placeholder="Айді ордера">
+        <input asp-for=oid type="text" placeholder="Введіть айдішник юзера">
+        <button type="submit">Тиць</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error3"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error4"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error228"]</label>
     </form>
 
     <form asp-action="HardQ2">
-        <p style="margin-right:20px"><b>Query 2:</b> Some sentence</p>
-        <input asp-for=oid type="text" placeholder="Enter input">
-        <input asp-for=OrdeId type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px"><b>М. Запит 2:</b>отримати ідентифікатори замовлень, які не містять певні продукти, замовлені в іншому замовленні:</p>
+        <input asp-for=oid type="text" placeholder="Введіть айдішник юзера">
+        <input asp-for=OrdeId type="text" placeholder="Айді ордера">
+        <button type="submit">Тиць</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error5"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error6"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error1488"]</label>
     </form>
 
     <form asp-action="HardQ3">
-        <p style="margin-right:20px"><b>Query 3:</b> Some sentence</p>
-        <input asp-for=oid type="text" placeholder="Enter input">
-        <input asp-for=OrdeId type="text" placeholder="Enter input">
-        <button type="submit">Submit</button>
+        <p style="margin-right:20px"><b>М. Запит 3:</b> отримати замовлення, яке має принаймні один спільний продукт із замовленням n, але не мають продуктів, які є ексклюзивними для замовлення n:</p>
+        <input asp-for=oid type="text" placeholder="Введіть айдішник юзера">
+        <input asp-for=OrdeId type="text" placeholder="Айді ордера">
+        <button type="submit">Тиць</button>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error7"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error8"]</label>
         <label style="font-size:30px;text-align:center;display:block" class="text-danger">@TempData["Error337"]</label>
