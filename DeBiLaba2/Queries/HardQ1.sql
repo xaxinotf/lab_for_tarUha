@@ -1,9 +1,16 @@
 ﻿--Запит - отримати унікальні ідентифікатори замовлень, які містять продукти, замовлені в певному замовленні, виключаючи саме це замовлення.
 SELECT DISTINCT o.Id
 FROM [Orders] o
-JOIN Products p ON p.Id IN (
+WHERE o.Id <> @oId AND NOT EXISTS( --minayemo @oId
+	SELECT op.ProductsId
+    FROM [OrderProduct] op
+    WHERE op.OrderId = @OrderId --minayemo @OrderId
+	EXCEPT 
     SELECT op.ProductsId
     FROM OrderProduct op
-    WHERE op.OrderId = @OrderId --minayemo
+    WHERE op.OrderId = o.Id
 )
-WHERE o.Id <> @oId --minayemo
+
+--nor exist  ||notr exist@OrderId
+-- not in 
+--a не входить в бе я не чорт :(
